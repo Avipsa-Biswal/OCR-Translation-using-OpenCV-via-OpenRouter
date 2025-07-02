@@ -12,13 +12,7 @@ This project demonstrates a pipeline for **Optical Character Recognition (OCR)**
 
 ## 🧪 Dependencies
 
-Install all required packages using:
-
-```bash
-pip install -r requirements.txt
-```
-
-Or install manually:
+Install all required packages :
 
 ```bash
 pip install opencv-python pytesseract gradio pillow requests torchvision
