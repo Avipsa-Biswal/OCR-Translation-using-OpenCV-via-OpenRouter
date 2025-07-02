@@ -21,7 +21,7 @@ pip install opencv-python pytesseract gradio pillow requests torchvision
 Also ensure **Tesseract OCR** is installed on your system:
 
 * Ubuntu: `sudo apt install tesseract-ocr`
-* Windows: [Download here](https://github.com/tesseract-ocr/tesseract/wiki](https://tesseract-ocr.github.io/))
+* Windows: [Download here](https://tesseract-ocr.github.io/)
 
 ## 🧠 Workflow
 
