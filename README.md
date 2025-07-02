@@ -1,81 +1,59 @@
-# 🖼️ OCR + Translation using ResNet & Mistral (via OpenRouter)
+# 📘 OCR + Translation using OpenCV (via OpenRouter)
 
-This project extracts text from images using OCR (Tesseract), enhances the image with a ResNet model for better clarity, and translates the extracted text using the `mistralai/mistral-7b-instruct:free` model from OpenRouter.
+This project demonstrates a pipeline for **Optical Character Recognition (OCR)** and **Translation** of text from images. It uses **OpenCV** and **Tesseract** for OCR and leverages an external API (via **OpenRouter**) for language translation. The application is wrapped in an interactive UI using **Gradio**.
 
----
+## 🔧 Features
 
-## 📦 Requirements
+* 📸 Upload or capture an image
+* 🔍 Image preprocessing with **OpenCV**
+* 🧠 Text extraction using **Tesseract OCR**
+* 🌐 Text translation via **OpenRouter API**
+* 🖼️ User interface with **Gradio**
 
-Install the dependencies in a Google Colab notebook or your local environment:
+## 🧪 Dependencies
+
+Install all required packages using:
 
 ```bash
-!pip install gradio opencv-python-headless pytesseract torch torchvision requests python-dotenv
-````
+pip install -r requirements.txt
+```
 
----
+Or install manually:
 
-## 🔑 API Key Setup
+```bash
+pip install opencv-python pytesseract gradio pillow requests torchvision
+```
 
-You need an OpenRouter API key.
+Also ensure **Tesseract OCR** is installed on your system:
 
-1. Go to [OpenRouter](https://openrouter.ai) and log in.
-2. Generate an API key.
-3. Store the key in an environment variable:
+* Ubuntu: `sudo apt install tesseract-ocr`
+* Windows: [Download here](https://github.com/tesseract-ocr/tesseract/wiki)
+
+## 🧠 Workflow
+
+1. **Image Preprocessing**: Resize, denoise, and optionally use **ResNet** to enhance image quality.
+2. **OCR Extraction**: Extract text from the processed image.
+3. **Translation**: Send the extracted text to OpenRouter for translation.
+4. **Display**: Show original image, detected text, and translated output.
+
+## 📁 Project Structure
+
+```
+OCR_+_Translation_using_OpenCV(via_OpenRouter).ipynb
+README.md
+```
+
+## 🔑 API Note
+
+Make sure to set up your **OpenRouter API key** before running the app. It should be passed in the headers for translation requests.
+
+## ✅ Example Use Case
+
+* Translate handwritten or printed documents.
+* Translate menus, signs, or product labels from images.
+
+## 🚀 Run the App
 
 ```python
-import os
-os.environ["OPENROUTER_API_KEY"] = "your_openrouter_api_key_here"
+!gradio app.py  # or run the notebook cells directly
 ```
-
----
-
-## 🧠 Pipeline Breakdown
-
-### 1. Image Preprocessing
-
-* Grayscale conversion
-* Thresholding using Otsu's method
-* Denoising using OpenCV
-
-### 2. ResNet Enhancement
-
-* Uses pretrained `resnet18` from `torchvision`
-* Normalizes and resizes the image to feed into ResNet
-* Extracts features (for future use, e.g., semantic enhancements)
-
-### 3. OCR Extraction
-
-* Uses Tesseract to extract text from the preprocessed image.
-
-### 4. Translation
-
-* Translates extracted text using OpenRouter’s API with the `mistralai/mistral-7b-instruct:free` model.
-
----
-
-## 🚀 Running the App
-
-Just run the notebook cells or use `gradio` to launch the UI:
-
-```python
-if __name__ == "__main__":
-    demo.launch()
-```
-
----
-
-## 📁 File Structure
-
-```
-OCR_Translation/
-│
-├── ocr_translation_resnet_openrouter.ipynb
----
-
-## 📌 Notes
-
-* Make sure Tesseract is installed and available (Colab already has it).
-
-```
-
----
