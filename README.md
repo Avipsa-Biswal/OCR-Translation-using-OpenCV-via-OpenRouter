@@ -48,7 +48,7 @@ Also install **Tesseract OCR**:
 
 ```
 OCR_+_Translation_using_OpenCV(via_OpenRouter_OpenAI_Client).ipynb
-OCR_+_Translation_using_OpenCV(via_OpenRouter_MistralAI).ipynb
+OCR_+_Translation_using_OpenCV(via_OpenRouter).ipynb
 README.md
 ```
 
