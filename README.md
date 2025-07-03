@@ -34,7 +34,7 @@ Also install **Tesseract OCR**:
 
 ## 🧠 Workflow
 
-1. **Image Preprocessing**: Resize, denoise, and optionally enhance the image using ResNet.
+1. **Image Preprocessing**: Resize, denoise, and optionally enhance the image.
 2. **OCR**: Extract text using **Tesseract**.
 3. **Translation**:
 
