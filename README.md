@@ -7,7 +7,7 @@ This project demonstrates a complete pipeline for **Optical Character Recognitio
 ## 🔧 Features
 
 * 📸 Upload or capture an image
-* 🧹 Preprocess image using **OpenCV** (with optional ResNet enhancement)
+* 🧹 Preprocess image using **OpenCV**
 * 🧠 Extract text using **Tesseract OCR**
 * 🌐 Translate extracted text using **OpenRouter API**:
 
