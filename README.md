@@ -1,53 +1,87 @@
-# 📘 OCR + Translation using OpenCV (via OpenRouter)
+### 📘 OCR + Translation using OpenCV (via OpenRouter: GPT-4o & Mistral)
 
-This project demonstrates a pipeline for **Optical Character Recognition (OCR)** and **Translation** of text from images. It uses **OpenCV** and **Tesseract** for OCR and leverages an external API (via **OpenRouter**) for language translation. The application is wrapped in an interactive UI using **Gradio**.
+This project demonstrates a complete pipeline for **Optical Character Recognition (OCR)** and **Translation** of text from images. It uses **OpenCV** and **Tesseract** for OCR, and leverages the **OpenRouter API** to access large language models from **OpenAI (GPT-4o)** and **Mistral (Mixtral)**. The user interface is built with **Gradio**.
+
+---
 
 ## 🔧 Features
 
 * 📸 Upload or capture an image
-* 🔍 Image preprocessing with **OpenCV**
-* 🧠 Text extraction using **Tesseract OCR**
-* 🌐 Text translation via **OpenRouter API**
-* 🖼️ User interface with **Gradio**
+* 🧹 Preprocess image using **OpenCV** (with optional ResNet enhancement)
+* 🧠 Extract text using **Tesseract OCR**
+* 🌐 Translate extracted text using **OpenRouter API**:
+
+  * `openai/gpt-4o` for high-quality translation
+  * `mistralai/mixtral-8x7b-instruct` for free-tier translation
+* 🖼️ Display everything via an interactive **Gradio** UI
+
+---
 
 ## 🧪 Dependencies
 
-Install all required packages :
+Install all required libraries:
 
 ```bash
-pip install opencv-python pytesseract gradio pillow requests torchvision
+pip install opencv-python pytesseract gradio pillow requests torchvision openai python-dotenv
 ```
 
-Also ensure **Tesseract OCR** is installed on your system:
+Also install **Tesseract OCR**:
 
 * Ubuntu: `sudo apt install tesseract-ocr`
 * Windows: [Download here](https://tesseract-ocr.github.io/)
 
+---
+
 ## 🧠 Workflow
 
-1. **Image Preprocessing**: Resize, denoise, and optionally use **ResNet** to enhance image quality.
-2. **OCR Extraction**: Extract text from the processed image.
-3. **Translation**: Send the extracted text to OpenRouter for translation.
-4. **Display**: Show original image, detected text, and translated output.
+1. **Image Preprocessing**: Resize, denoise, and optionally enhance the image using ResNet.
+2. **OCR**: Extract text using **Tesseract**.
+3. **Translation**:
+
+   * If you have OpenRouter credits: use `openai/gpt-4o`.
+   * If not: fall back to free models like `mistralai/mixtral-8x7b-instruct`.
+4. **Display**: Show original image, detected text, and translated output in the UI.
+
+---
 
 ## 📁 Project Structure
 
 ```
-OCR_+_Translation_using_OpenCV(via_OpenRouter).ipynb
+OCR_+_Translation_using_OpenCV(via_OpenRouter_OpenAI_Client).ipynb
+OCR_+_Translation_using_OpenCV(via_OpenRouter_MistralAI).ipynb
 README.md
 ```
 
-## 🔑 API Note
+---
 
-Make sure to set up your **OpenRouter API key** before running the app. It should be passed in the headers for translation requests.
+## 🔑 API Setup
 
-## ✅ Example Use Case
+You only need your **OpenRouter API key** to use this app.
+No OpenAI key is required. You can use all supported models directly via OpenRouter.
 
-* Translate handwritten or printed documents.
-* Translate menus, signs, or product labels from images.
+---
 
-## 🚀 Run the App
+## 🔁 Supported Models via OpenRouter
 
-```python
-!gradio app.py  # or run the notebook cells directly
+| Model                             | Description                       | Requires OpenAI Key | Requires OpenRouter Key | Free?               |
+| --------------------------------- | --------------------------------- | ------------------- | ----------------------- | ------------------- |
+| `openai/gpt-4o`                   | GPT-4 Omni (latest ChatGPT model) | ❌ No                | ✅ Yes                   | ⚠️ Requires credits(can be used directly upto a certain amount) |
+| `mistralai/mixtral-8x7b-instruct` | Open-weight, high-quality LLM     | ❌ No                | ✅ Yes                   | ✅ Free              |
+
+---
+
+## ✅ Example Use Cases
+
+* Translate handwritten classroom notes
+* OCR + translate signs, menus, forms
+* Aid multilingual understanding of documents
+
+---
+
+##  How to Run
+
+Run the Jupyter Notebook:
+
+```bash
+OCR_+_Translation_using_OpenCV(via_OpenRouter_OpenAI_Client).ipynb
 ```
