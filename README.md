@@ -22,7 +22,7 @@ This project demonstrates a complete pipeline for **Optical Character Recognitio
 Install all required libraries:
 
 ```bash
-pip install opencv-python pytesseract gradio pillow requests torchvision openai python-dotenv
+pip install opencv-python pytesseract gradio pillow requests torchvision openai
 ```
 
 Also install **Tesseract OCR**:
