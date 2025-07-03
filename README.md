@@ -84,4 +84,6 @@ Run the Jupyter Notebook:
 
 ```bash
 OCR_+_Translation_using_OpenCV(via_OpenRouter_OpenAI_Client).ipynb
+OR
+OCR_+_Translation_using_OpenCV(via_OpenRouter).ipynb
 ```
